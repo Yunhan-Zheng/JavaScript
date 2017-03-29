@@ -2,7 +2,7 @@ import path from 'path';
 
 export default {
   debug: true,
-  devtool: 'inline-source-map',
+  devtool: 'inline-source-map', //will see original code in the browser
   noInfo: false,
   entry: [
     path.resolve(__dirname, 'src/index')
