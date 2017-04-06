@@ -1,0 +1,35 @@
+
+# Notes:
+#   - Minimal appveyor.yml file is an empty file. All sections are optional.
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+# environment variables
+environment:
+  matrix:
+  # node.js
+  - nodejs_version: "7"
+
+# Install scripts. (Run after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  # to run script as a PowerShell command prepend it with ps:
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
+# Post-install test scripts.
+# to run your custom scripts instead of automatic tests.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+# Don't actually build
+build: off
