@@ -1,4 +1,12 @@
 export default function getBaseUrl(){
-  const inDevelopment = window.location.hostname === 'localhost';
-  return inDevelopment ? 'http://localhost:3001/':'/'; //use mockapi if it's running in dev
+  return getQueryStringParameterByName('useMockApi')?'http://localhost:3001/':'/';
+}
+
+function getQueryStringParameterByName(name, url) {
+    if(!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+
+    return results == null ? "" : decodeURIComponent(results[2].replace(/\+/g, " "));
 }
