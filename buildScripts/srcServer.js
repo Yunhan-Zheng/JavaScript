@@ -14,7 +14,7 @@ app.use(require('webpack-dev-middleware')(compiler,{
   publicPath:config.output.publicPath
 }));
 
-//any reference to the root should be handled by the funtion
+//any reference to the root should be handled by the function
 //declare routing
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname, '../src/index.html'));

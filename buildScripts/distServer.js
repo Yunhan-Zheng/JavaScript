@@ -13,7 +13,7 @@ app.use(compression());
 //serve static files in the dist directory
 app.use(express.static('dist'));
 
-//any reference to the root should be handled by the funtion
+//any reference to the root should be handled by the function
 //declare routing
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname, '../dist/index.html'));
